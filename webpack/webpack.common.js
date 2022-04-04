@@ -1,6 +1,10 @@
 const path = require('path');
+const paths = require('./paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin');
+const { DefinePlugin } = require('webpack');
+const dotenv = require('dotenv-flow').config({
+  path: path.join(paths.root),
+});
 
 module.exports = {
   entry: [
@@ -11,9 +15,8 @@ module.exports = {
   ],
   resolve: {
     alias: {
-      src: path.resolve(__dirname, '..', './src'),
-
       app: path.resolve(__dirname, '..', './src'),
+      src: path.resolve(__dirname, '..', './src'),
     },
     extensions: ['.tsx', '.ts', '.js'],
   },
@@ -53,15 +56,8 @@ module.exports = {
       favicon: path.resolve(__dirname, '..', './src/assets/favicon.ico'),
       template: path.resolve(__dirname, '..', './src/assets/index.html'),
     }),
-    new CopyPlugin({
-      patterns: [
-        {
-          from: 'source',
-          to: 'dest',
-          // Error if not set//TODO => why it's cause an error?
-          noErrorOnMissing: true,
-        },
-      ],
+    new DefinePlugin({
+      'process.env': JSON.stringify(dotenv.parsed),
     }),
   ],
 };

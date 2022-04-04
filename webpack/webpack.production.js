@@ -1,5 +1,5 @@
-const webpack = require('webpack')
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'production',
@@ -7,10 +7,6 @@ module.exports = {
   plugins: [
     new MiniCssExtractPlugin({
       filename: 'css/[name].css',
-    }),
-    new webpack.DefinePlugin({
-      //TODO => seperate .env
-      'process.env.name': JSON.stringify('Oclock'),
     }),
   ],
   module: {
@@ -30,9 +26,9 @@ module.exports = {
               url: {
                 filter: (url) => {
                   if (url.includes('charset=utf-8;;')) {
-                    return false
+                    return false;
                   }
-                  return true
+                  return true;
                 },
               },
             },
@@ -50,4 +46,4 @@ module.exports = {
       },
     ],
   },
-}
+};

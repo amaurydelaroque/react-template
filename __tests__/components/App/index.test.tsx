@@ -1,4 +1,4 @@
-import App from './index';
+import App from 'src/components/App';
 import { render, screen } from '@testing-library/react';
 
 test('renders learn React and Typescript link', () => {

@@ -4,6 +4,8 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
+  // TODO AirBnB config
+
   settings: {
     react: {
       version: 'detect',
