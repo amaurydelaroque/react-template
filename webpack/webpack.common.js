@@ -1,6 +1,7 @@
 const path = require('path');
 const paths = require('./paths');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const { DefinePlugin } = require('webpack');
 const dotenv = require('dotenv-flow').config({
   path: path.join(paths.root),
@@ -14,6 +15,7 @@ module.exports = {
     paths.src + '/index.tsx',
   ],
   resolve: {
+    plugins: [new TsconfigPathsPlugin()],
     alias: {
       app: paths.src,
       src: paths.src,
