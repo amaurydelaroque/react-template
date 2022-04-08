@@ -1,10 +1,10 @@
-import * as ReactDOMClient from 'react-dom/client'
-import App from './components/App'
+import * as ReactDOMClient from 'react-dom/client';
+import App from 'src/components/App';
 
-const container = document.getElementById('root') as HTMLDivElement
+const container = document.getElementById('root') as HTMLDivElement;
 
 // Create a root.
-const root = ReactDOMClient.createRoot(container)
+const root = ReactDOMClient.createRoot(container);
 
 // Initial render: Render an element to the root.
-root.render(<App />)
+root.render(<App />);

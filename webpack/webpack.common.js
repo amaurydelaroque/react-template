@@ -8,15 +8,15 @@ const dotenv = require('dotenv-flow').config({
 
 module.exports = {
   entry: [
-    // SCSS
-    path.resolve(__dirname, '..', './src/styles/index.scss'),
+    //SCSS
+    paths.src + '/styles/index.scss',
     // JS
-    path.resolve(__dirname, '..', './src/index.tsx'),
+    paths.src + '/index.tsx',
   ],
   resolve: {
     alias: {
-      app: path.resolve(__dirname, '..', './src'),
-      src: path.resolve(__dirname, '..', './src'),
+      app: paths.src,
+      src: paths.src,
     },
     extensions: ['.tsx', '.ts', '.js'],
   },
@@ -48,13 +48,13 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, '..', './build'),
-    filename: 'bundle.js',
+    path: paths.build,
+    filename: 'js/bundle.js',
   },
   plugins: [
     new HtmlWebpackPlugin({
-      favicon: path.resolve(__dirname, '..', './src/assets/favicon.ico'),
-      template: path.resolve(__dirname, '..', './src/assets/index.html'),
+      favicon: paths.assets + '/favicon.ico',
+      template: paths.assets + '/index.html',
     }),
     new DefinePlugin({
       'process.env': JSON.stringify(dotenv.parsed),
